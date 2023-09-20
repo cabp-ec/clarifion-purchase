@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+  <meta name="theme-color" content="#FFFFFF">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Carlos Arturo Bucheli Padilla">
+
+  <title>CABP</title>
+
+  <link rel="icon" type="image/icon" href="favicon.ico"/>
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen,projection">
+  <link href="/css/defaults.css" rel="stylesheet" media="screen,projection">
+</head>
+
+<body class="">
+
+<div id="root">
+  <div class="loader-global d-flex flex-column align-items-center justify-content-center">
+    <div class="wrapper d-flex flex-column align-items-start">
+      <p class="mb-1 text-shadow">Loading</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 0;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/src/main.tsx"></script>
+<script src="/js/bootstrap.bundle.js"></script>
+
+<script>
+  window.DBOOSTER = {
+    startEvent: new CustomEvent('APP_START_READY'),
+    loader: {
+      set: (value) => {
+        const el = document.querySelector('div.loader-global div.progress');
+        value = value > 100 ? 100 : value;
+        el.style.width = `${value}%`;
+        window.DBOOSTER.loader.value = value;
+      },
+      value: 0
+    },
+    go: () => (document.dispatchEvent(window.DBOOSTER.startEvent))
+  };
+
+  setTimeout(() => {
+    window.DBOOSTER.loader.set(5);
+    setTimeout(() => window.DBOOSTER.go(), 250);
+  }, 250);
+</script>
+
+</body>
+</html>
