@@ -19,7 +19,7 @@ export const TopBar: React.FC<TopBarProps> = ({ links }: TopBarProps) => {
     return items;
   };
 
-  return <header className="d-flex justify-content-center py-3 text-bg-dark">
+  return <header className="d-flex justify-content-center py-0 text-bg-dark">
     <ul className="nav nav-pills">
       { renderItems() }
     </ul>
