@@ -49,7 +49,8 @@ const specialOffers = [
     additionalProducts: 6,
     value: 14,
     type: 1, // 'fixedPrice'
-    satisfactionGuarantee: '',
+    oneTime: true,
+    satisfactionGuarantee: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis feugiat est eu malesuada. Curabitur bibendum eu justo sit amet convallis.',
     freeShipping: true, // optional
     displayBrandInDisclaimer: true // optional
   }
@@ -61,10 +62,10 @@ const customerTestimonials = [
     ranking: 5,
     author: {
       name: 'Ken T.',
-      thumbnail: '/images/customers/ken_trevor-thumb.png'
+      thumbnail: 'https://picsum.photos/id/65/50'
     },
     verifiedCustomer: true,
-    text: ''
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere mollis mauris, id tristique neque hendrerit sed. Fusce vel nunc posuere, dignissim velit nec, auctor eros.',
   }
 ];
 
@@ -76,7 +77,7 @@ const productsAvail = [
     brandPrefixed: true,
     ranking: 5,
     stock: 12,
-    price: 200.5,
+    price: 30,
     description: {
       short: 'Simply plug a Clarifion into any standard outlet and replace bulky, expensive air purifiers.',
       large: 'Simply plug a Clarifion into any standard outlet and replace bulky, expensive air purifiers with a simple device controllable from your smart phone; feel the fresh in your environments up 40ft per device. Because everyone deserves to breathe fresh-air.'
@@ -87,9 +88,9 @@ const productsAvail = [
       '**Perfect for every room** in all types of spaces'
     ],
     images: {
-      large: '/images/clarifion-air-ionizer-large.png',
-      medium: '/images/clarifion-air-ionizer-medium.png',
-      small: '/images/clarifion-air-ionizer-small.png',
+      large: '/img/products/clarifion-air-ionizer-large.png',
+      medium: '/img/products/clarifion-air-ionizer-medium.png',
+      small: 'https://picsum.photos/id/48/60/80',
     },
     testimonials: [1], // optional
     specialOffer: 1 // optional
@@ -97,7 +98,7 @@ const productsAvail = [
 ];
 
 const cart = [
-  { product: 1, qty: 2 }
+  { id: 1, product: 1, qty: 2 }
 ];
 
 const payment = { // i.e. the checkout step
@@ -114,26 +115,24 @@ const payment = { // i.e. the checkout step
   cardCode: 123
 };
 
-const stepConfirmation = {}; // i.e. a "copy" of the checkout + claimed offers
-
 const purchaseSteps = [
   {
     id: 1,
     name: 'cartReview',
     label: 'Cart Review',
-    ready: false
+    ready: true,
   },
   {
     id: 2,
     name: 'checkout',
     label: 'Checkout',
-    ready: false
+    ready: true,
   },
   {
     id: 3,
     name: 'specialOffers',
     label: 'Special Offer',
-    ready: false
+    ready: false,
   },
   {
     id: 4,
@@ -144,7 +143,7 @@ const purchaseSteps = [
 ];
 
 const uiState = {
-  currentStep: 1,
+  currentStep: 3,
   brandPrefix: 'Clarifion',
   displayStepPrefix: true,
   maxSpecialOffers: 1,

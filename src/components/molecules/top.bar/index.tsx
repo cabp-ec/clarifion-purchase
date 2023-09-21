@@ -10,8 +10,8 @@ export const TopBar: React.FC<TopBarProps> = ({ links }: TopBarProps) => {
   const renderItems = (): ReactNode[] => {
     const items: ReactNode[] = [];
 
-    links.forEach(link => {
-      items.push(<li className="nav-item">
+    links.forEach((link, index) => {
+      items.push(<li key={ `link-top-${ index }` } className="nav-item">
         <Link item={ link } className="nav-link text-white"/>
       </li>);
     });

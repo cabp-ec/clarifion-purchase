@@ -6,6 +6,9 @@ import { UiService } from './services/ui/ui.service';
 // import apiRef from './../api/api.ref';
 import constants from '../static/constants';
 import initialState from '../../tests/states';
+import { ControllersAvailInterface } from '../static/interfaces/controllers.avail.interface';
+import { PurchaseStepperController } from '../components/organisms/purchase.stepper/purchase.stepper.ctrl';
+import { SpecialOffersStepCtrl } from '../components/organisms/purchase.steps/special.offers.step.ctrl';
 
 /**
  * Application Bootstrap
@@ -32,6 +35,7 @@ const Bootstrap = function (_settings: BootstrapSettingsInterface) {
     api: ApiClient = new ApiClient();
     store: StoreService;
     ui: UiService;
+    controllers: ControllersAvailInterface;
 
     /**
      * Constructor for the Bootstrap class
@@ -43,6 +47,10 @@ const Bootstrap = function (_settings: BootstrapSettingsInterface) {
       this.#initEvent = new CustomEvent(this.initEventName);
       this.store = new StoreService();
       this.ui = new UiService();
+      this.controllers = {
+        purchaseStepperController: new PurchaseStepperController(this.store),
+        specialOffersStepCtrl: new SpecialOffersStepCtrl(this.store),
+      };
     }
 
     /**

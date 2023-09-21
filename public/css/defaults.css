@@ -1,6 +1,6 @@
 html,
 body {
-  background: #f4f4f4;
+  background: #ffffff;
   color: #2B2B2B;
   height: 100%;
   letter-spacing: 0.05em;
@@ -97,6 +97,64 @@ div.loader-global.hidden {
   animation-name: fadeOut;
 }
 
+/* MARGIN & PADDING */
+.p-45 {
+  padding: 2.25rem !important
+}
+
+/* BORDERS */
+.border-round-100 {
+  border-radius: 100px;
+}
+
+.border-round-10 {
+  border-radius: 10px;
+}
+
+.border-round-5 {
+  border-radius: 5px;
+}
+
+.border-left {
+  border-left-style: solid;
+}
+
+/* TEXT */
+.text-no-decoration-underline {
+  text-decoration: none;
+}
+
+.text-strike {
+  text-decoration: line-through;
+}
+
+/* IMAGES */
+.thumbnail-circle {
+  border-radius: 50px;
+}
+
+/* SQUARES */
+div.square-100 {
+  height: 100px;
+  width: 100px;
+}
+
+div.square-80 {
+  height: 76px;
+  width: 80px;
+}
+
+.square-50 {
+  height: 50px;
+  width: 50px;
+}
+
+.square-25 {
+  height: 25px;
+  line-height: 24px;
+  width: 25px;
+}
+
 /* Z-INDEX */
 .z-10 {
   z-index: 10;
@@ -108,4 +166,9 @@ div.loader-global.hidden {
 
 .z-100 {
   z-index: 100;
+}
+
+/* COMPONENTS */
+.w-100-90 {
+  width: calc(100% - 90px);
 }
