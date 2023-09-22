@@ -1,0 +1,27 @@
+:root, [data-bs-theme=light] {
+  /* Success */
+  --bs-success: #198754;
+  --bs-success-rgb: 133, 191, 55 !important;
+  --bs-success-text: #198754;
+  --bs-success-bg-subtle: #d1e7dd;
+  --bs-success-border-subtle: #a3cfbb;
+
+  /* Primary */
+  --bs-primary: #3B88FE;
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-primary-text: #3B88FE;
+  --bs-primary-bg-subtle: #cfe2ff;
+  --bs-primary-border-subtle: #9ec5fe;
+
+  --bs-light-rgb: 251, 251, 251
+}
+
+.x {
+  /*background: rgb(25, 135, 84);*/
+  /*background: #85BF37;*/
+  /*background: rgb(133, 191, 55);*/
+
+  background: rgb(251, 251, 251);
+  /*background: rgb(248, 249, 250);*/
+}
+

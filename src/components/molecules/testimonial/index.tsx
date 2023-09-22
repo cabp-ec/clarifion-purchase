@@ -12,7 +12,7 @@ export const Testimonial: React.FC<TestimonialProps> = ({ testimonial }: Testimo
       return null;
     }
 
-    return <span className="text-success">
+    return <span className="text-success text-tiny">
       <i className="bi bi-patch-check-fill px-1"/>Verified Customer
     </span>;
   };

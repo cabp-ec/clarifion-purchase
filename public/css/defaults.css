@@ -137,6 +137,10 @@ div.loader-global.hidden {
 }
 
 /* TEXT */
+.text-tiny {
+  font-size: 10px
+}
+
 .text-no-decoration-underline {
   text-decoration: none;
 }
@@ -165,6 +169,7 @@ div.loader-global.hidden {
 /* IMAGES */
 .thumbnail-circle {
   border-radius: 50px;
+  max-width: 50px;
 }
 
 /* SQUARES */
@@ -345,4 +350,22 @@ div.card-box {
     border-top-width: 1px;
     width: calc(100% - 1rem);
   }
+}
+
+
+.btn-success {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #84BE37;
+  --bs-btn-border-color: #84BE37;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #84BE37;
+  --bs-btn-hover-border-color: #84BE37;
+  --bs-btn-focus-shadow-rgb: 60, 153, 110;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #84BE37;
+  --bs-btn-active-border-color: #84BE37;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #84BE37;
+  --bs-btn-disabled-border-color: #84BE37
 }

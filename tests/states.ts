@@ -62,7 +62,7 @@ const customerTestimonials = [
     ranking: 5,
     author: {
       name: 'Ken T.',
-      thumbnail: 'https://picsum.photos/id/65/50'
+      thumbnail: '/img/customers/kent.png'
     },
     verifiedCustomer: true,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere mollis mauris, id tristique neque hendrerit sed. Fusce vel nunc posuere, dignissim velit nec, auctor eros.',
