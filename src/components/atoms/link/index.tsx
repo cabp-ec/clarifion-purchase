@@ -16,6 +16,7 @@ export const Link: React.FC<LinkProps> = ({ item, className }: LinkProps) => {
   };
 
   return <a
+    title={ item.label }
     href={ item.url }
     target={ item.blank ? '_blank' : '_self' }
     className={ className }

@@ -43,13 +43,17 @@
       },
       value: 0
     },
-    go: () => (document.dispatchEvent(window.DBOOSTER.startEvent))
+    go: () => {
+      console.log('dispatching: ', window.DBOOSTER.startEvent);
+      document.dispatchEvent(window.DBOOSTER.startEvent);
+    }
   };
 
   setTimeout(() => {
     window.DBOOSTER.loader.set(5);
+    console.log('INIT IT...');
     setTimeout(() => window.DBOOSTER.go(), 250);
-  }, 250);
+  }, 1500);
 </script>
 
 </body>

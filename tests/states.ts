@@ -79,7 +79,7 @@ const productsAvail = [
     stock: 12,
     price: 30,
     description: {
-      short: 'Simply plug a Clarifion into any standard outlet and replace bulky, expensive air purifiers.',
+      short: 'Simply plug a Clarifion into any standard outlet and replace bulky, expensive air purifiers with a simple.',
       large: 'Simply plug a Clarifion into any standard outlet and replace bulky, expensive air purifiers with a simple device controllable from your smart phone; feel the fresh in your environments up 40ft per device. Because everyone deserves to breathe fresh-air.'
     },
     advantages: [

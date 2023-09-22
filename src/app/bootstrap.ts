@@ -87,7 +87,9 @@ const Bootstrap = function (_settings: BootstrapSettingsInterface) {
     }
 
     onComponentsReady() {
-      this.ui.closeLoader(100, 0);
+      // this.ui.setUpSlider(['carouselTopBar'], () => {
+        this.ui.closeLoader(100, 0);
+      // });
     }
 
     /**

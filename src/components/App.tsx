@@ -11,6 +11,7 @@ import { PurchaseStepInterface } from '../app/models/purchase.step/purchase.step
 import { PurchaseStepper } from './organisms/purchase.stepper';
 import { CartItemInterface } from '../app/models/cart.item/cart.item.interfase';
 import { TestimonialInterface } from '../app/models/testimonial/testimonial.interface';
+import { BrandingBar } from './molecules/branding.bar';
 
 const App = () => {
   const selfRef = useRef(true);
@@ -28,22 +29,33 @@ const App = () => {
       console.log('GO!');
       selfRef.current = false;
       DBooster.onComponentsReady();
+    } else {
+      console.warn('NO GO!');
     }
   }, [gameWrapper]);
 
   return <>
     <LoaderGlobal on={ loader.on } value={ loader.value }/>
-    <TopBar links={ ui.topLinks }/>
 
-    <div className="container">
-      <PurchaseStepper
-        controller={ DBooster.controllers.purchaseStepperController }
-        purchaseSteps={ purchaseSteps }
-        currentStep={ ui.currentStep }
-        cart={ cart }
-        customerTestimonials={ customerTestimonials }
-        brandPrefix={ ui.brandPrefix }
-      />
+    <TopBar links={ ui.topLinks }/>
+    <BrandingBar/>
+
+    <div className="bg-light-sm pb-5">
+      <div className="text-center pt-4 mb-3">
+        <h1 className="page-title mt-3">Wait! Your Order In Progress.</h1>
+        <p className="fs-6 mt-3 mb-0">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing</p>
+      </div>
+
+      <div className="container">
+        <PurchaseStepper
+          controller={ DBooster.controllers.purchaseStepperController }
+          purchaseSteps={ purchaseSteps }
+          currentStep={ ui.currentStep }
+          cart={ cart }
+          customerTestimonials={ customerTestimonials }
+          brandPrefix={ ui.brandPrefix }
+        />
+      </div>
     </div>
 
     <Footer contactEmails={ ui.contactEmails }/>

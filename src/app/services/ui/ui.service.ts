@@ -19,6 +19,15 @@ export class UiService {
     setTimeout(() => DBooster.store.loader.setProp(constants.ON, false), 1000);
   }
 
+  /*setUpSlider(ids: string[], cb: () => void) {
+    const carousels = [];
+
+    ids.forEach((id, index) => carousels.push(new bootstrap.Carousel(`#${ id }`)));
+    setTimeout(() => cb(), 500);
+
+    // const carousel = new bootstrap.Carousel('#myCarousel')
+  }*/
+
   /**
    * Change the mouse cursor to the given value
    *

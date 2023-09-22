@@ -33,17 +33,22 @@ export const PurchaseStepper: React.FC<PurchaseStepperProps> = ({
     purchaseSteps.forEach((step, index) => {
       const stepNum = index + 1;
       const stepMatch = currentStep === stepNum;
-      const label = `Step ${ stepNum }: ${ step.label }`;
+      const label = <><span className="d-none d-lg-inline">Step { stepNum }: </span>{ step.label }</>; // `Step ${ stepNum }: ${ step.label }`;
+      const boldStyle = stepMatch ? 'fw-bold' : '';
       const icon = step.ready
         ? 'bi bi-check-circle-fill'
         : `bi bi-${ stepNum }-circle${ stepMatch ? '-fill' : '' }`;
+      const iconColor = step.ready
+        ? `text-success`
+        : `text-primary`;
+      const iconClassName = `${ icon } ${ iconColor } fs-3`;
 
       items.push(<a
         key={ `step-${ stepNum }` }
         onClick={ e => controller.onStepClick(stepNum) }
-        className="cursor-pointer"
+        className="cursor-pointer text-dark text-no-decoration-underline"
       >
-        <i className={ `${ icon } me-1` }/>{ label }
+        <i className={ iconClassName }/><p className={ `${ boldStyle } m-0` }>{ label }</p>
       </a>);
     });
 
@@ -73,7 +78,7 @@ export const PurchaseStepper: React.FC<PurchaseStepperProps> = ({
       { renderNavItems() }
     </div>
 
-    <div className="d-flex border-round-10 bg-light mt-4 p-45">
+    <div className="d-flex border-round-10 bg-light mt-3 mt-md-4 p-md-4 p-45">
       { renderStep() }
     </div>
   </div>;

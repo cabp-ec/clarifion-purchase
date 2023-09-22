@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { CartItemInterface } from '../../../app/models/cart.item/cart.item.interfase';
 import { SpecialOffersStepCtrl } from './special.offers.step.ctrl';
 import { Testimonial } from '../../molecules/testimonial';
 import { SpecialOfferEnum } from '../../../app/services/store/interfaces/initial.state.interface';
@@ -26,14 +25,15 @@ export const SpecialOffersStep: React.FC<SpecialOffersStepProps> = ({
   const testimonial = controller.getTestimonial(product.testimonials[0]);
 
   const renderTitle = (): ReactNode => {
-    const prefix = offer.oneTime ? <span className="text-primary">ONE TIME ONLY</span> : null;
+    const prefix = offer.oneTime ? <span className="text-primary d-inline">ONE TIME ONLY</span> : null;
     const brand = offer.displayBrandInDisclaimer ? brandPrefix : product.name;
     const price = offer.type === SpecialOfferEnum.fixedPrice ? `$${ offer.value } Each` : `${ offer.value }% Less`;
     const spanPrice = <span className="text-primary me-1">{ price }</span>;
-    const spanTotal = <span className="d-block">{ `($${ offer.additionalProducts * offer.value } Total!)` }</span>;
+    const spanTotal = <span className="d-lg-block">{ `($${ offer.additionalProducts * offer.value } Total!)` }</span>;
+    const text = `Special Price For ${ offer.additionalProducts } Extra ${ brand } For Only`;
 
     return <>
-      { prefix } Special Price For { offer.additionalProducts } Extra { brand } For Only { spanPrice }{ spanTotal }
+      { prefix } { text } { spanPrice }{ spanTotal }
     </>;
   };
 
@@ -41,7 +41,10 @@ export const SpecialOffersStep: React.FC<SpecialOffersStepProps> = ({
     const items: ReactNode[] = [];
 
     product.advantages.forEach((item, index) => {
-      items.push(<p key={ `product-feature-${ index }` }><i className="bi bi-check2 text-primary me-1"/>{ item }</p>);
+      items.push(<p key={ `product-feature-${ index }` } className="mb-2 mb-lg-4">
+        <i className="bi bi-check2 text-primary me-1 float-start"/>
+        <span className="fs-07">{ item }</span>
+      </p>);
     });
 
     return items;
@@ -55,12 +58,12 @@ export const SpecialOffersStep: React.FC<SpecialOffersStepProps> = ({
     const spanProduct = <span className="text-primary px-1">{ offer.additionalProducts } extra { brandPrefix }</span>;
     const spanValue = <span className="text-primary px-1">${ offer.value } each</span>;
 
-    return <>Save{ spanSavings }and get { spanProduct }for only{ spanValue }</>;
+    return <span className="text d-block">Save{ spanSavings }and get { spanProduct }for only{ spanValue }</span>;
   };
 
   return <div className="d-flex w-100">
     <div className="row row-cols-1 row-cols-md-2 g-2">
-      <div className="col">
+      <div className="col d-none d-md-block">
         <div className="me-3">
           <img src={ product.images.large } alt={ product.name } className="img-fluid"/>
           {
@@ -73,12 +76,12 @@ export const SpecialOffersStep: React.FC<SpecialOffersStepProps> = ({
 
       <div className="col">
         <div>
-          <h3>{ renderTitle() }</h3>
+          <h3 className="text-center text-lg-start">{ renderTitle() }</h3>
           <ProductRow product={ product } overriddenPrice={ offer.value }/>
-          <div className="my-4">{ renderFeatures() }</div>
+          <div className="product-features mt-3 mt-lg-5 mb-lg-4">{ renderFeatures() }</div>
 
-          <div className="bg-primary-subtle border-round-10 p-2">
-            <span className="d-inline-block text-center bg-primary text-white square-25 thumbnail-circle me-2">%</span>
+          <div className="offer-disclaimer bg-primary-subtle border-round-10 my-3 p-2">
+            <span className="d-block float-start text-center bg-primary text-white square-25 thumbnail-circle me-2">%</span>
             { renderDisclaimer() }
           </div>
         </div>
@@ -87,11 +90,14 @@ export const SpecialOffersStep: React.FC<SpecialOffersStepProps> = ({
           YES - CLAIM MY DISCOUNT<i className="bi bi-arrow-right ms-3"/>
         </button>
 
-        <div className="d-flex border border-secondary-subtle border-round-5 p-2">
-          <div className="flex-fill border-end border-secondary-subtle"><small>Free Shipping</small></div>
-          <div className="flex-fill text-center"><i className="bi bi-lock me-1"/><small>Secure 256-Bit SSL
-            Encryption</small></div>
-          <div className="flex-fill border-start border-secondary-subtle ps-3"><small>Flex item</small></div>
+        <div className="border border-secondary-subtle border-round-5 p-1 px-2 card-box">
+          <div className="row row-cols-2 g-2 row-cols-lg-3 g-lg-3">
+            <div className="col text-center text-md-start"><small>Free Shipping</small></div>
+            <div className="col text-center border-start text-md-end"><i className="bi bi-lock me-1"/><small>Secure 256-Bit SSL Encryption</small></div>
+            <div className="col text-center text-md-end border-secondary-subtle mx-2 mx-lg-0">
+              <img alt="" src="/img/cards.png" className="img-fluid mt-2" width={185}/>
+            </div>
+          </div>
         </div>
 
         <button type="button" className="btn bg-transparent text-danger text-decoration-underline w-100 p-2 my-3">
